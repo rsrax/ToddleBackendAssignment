@@ -1,5 +1,12 @@
+require("dotenv").config();
 const express = require("express");
+const jwt = require("jsonwebtoken");
+
+const { connectDB } = require("./db");
 const app = express();
+
+connectDB();
+
 const indexRouter = require("./routes/index");
 
 app.use(express.json());

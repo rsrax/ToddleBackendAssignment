@@ -1,0 +1,2 @@
+// create assignment
+createAssignment(description: "New assignment", students: ["611ff3567194d90c9835621c", "611ff9de16b5bd3c20a1eafa"], publishedAt: "2021-08-23", deadline: "2021-12-09")
