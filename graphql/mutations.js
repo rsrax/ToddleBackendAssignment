@@ -1,5 +1,3 @@
-const {} = require("./types");
-
 const Tutor = require("../models/Tutor");
 const Student = require("../models/Student");
 const Assignment = require("../models/Assignment");
@@ -140,7 +138,7 @@ const createAssignment = {
 			if (date <= new Date().toLocaleDateString()) {
 				throw new Error("Deadline must be in the future");
 			}
-			if (date < publishedAt.toLocaleDateString()) {
+			if (date < new Date(publishedAt).toLocaleDateString()) {
 				throw new Error("Deadline must be the same as or after published date");
 			}
 		}

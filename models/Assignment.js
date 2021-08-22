@@ -14,24 +14,24 @@ const Schema = mongoose.Schema;
 // status of the assignment for that student gets updated to
 // SUBMITTED
 
+const StudentStatusSchema = new Schema({
+	student: {
+		type: Schema.Types.ObjectId,
+		ref: "Student",
+	},
+	status: {
+		type: String,
+		enum: ["SUBMITTED", "NOT_SUBMITTED"],
+		default: "NOT_SUBMITTED",
+	},
+});
+
 const AssignmentSchema = new Schema({
 	description: {
 		type: String,
 		required: true,
 	},
-	students: [
-		{
-			student: {
-				type: Schema.Types.ObjectId,
-				ref: "Student",
-			},
-			status: {
-				type: String,
-				enum: ["SUBMITTED", "NOT_SUBMITTED"],
-				default: "NOT_SUBMITTED",
-			},
-		},
-	],
+	students: [StudentStatusSchema],
 	publishedAt: {
 		type: Date,
 		required: true,
@@ -42,7 +42,7 @@ const AssignmentSchema = new Schema({
 	},
 	status: {
 		type: String,
-		enum: ["SCHEDULED", "ONGOING"],
+		enum: ["SCHEDULED", "ONGOING", "COMPLETED"],
 		default: "SCHEDULED",
 	},
 	submissions: [

@@ -6,8 +6,8 @@ const {
 	students,
 	student,
 	assignments,
-	getTutorAssignments,
-	getStudentAssignments,
+	getTutorAssignmentsFeed,
+	getStudentAssignmentsFeed,
 	getAssignmentDetails,
 } = require("./queries");
 
@@ -31,8 +31,8 @@ const QueryType = new GraphQLObjectType({
 		students,
 		student,
 		assignments,
-		getTutorAssignments,
-		getStudentAssignments,
+		getTutorAssignmentsFeed,
+		getStudentAssignmentsFeed,
 		getAssignmentDetails,
 	},
 });
